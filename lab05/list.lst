@@ -1,0 +1,20 @@
+     1                                  SECTION .data 
+     2 00000000 4F6272657A6B6F7661-     hello:	DB 'Obrezkova Anastasiya',10 
+     2 00000009 20416E617374617369-
+     2 00000012 79610A             
+     3                                  
+     4                                  helloLen: EQU $-hello 
+     5                                  
+     6                                  SECTION .text 
+     7                                  GLOBAL _start
+     8                                  
+     9                                  _start: 
+    10 00000000 B804000000              mov eax,4 
+    11 00000005 BB01000000              mov ebx,1 
+    12 0000000A B9[00000000]            mov ecx,hello 
+    13 0000000F BA15000000              mov edx,helloLen 
+    14 00000014 CD80                    int 80h 
+    15                                  
+    16 00000016 B801000000              mov eax,1 
+    17 0000001B BB00000000              mov ebx,0 
+    18 00000020 CD80                    int 80h 
